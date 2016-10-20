@@ -1,0 +1,69 @@
+<%= form_for(students_info) do |f| %>
+  <% if students_info.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(students_info.errors.count, "error") %> prohibited this students_info from being saved:</h2>
+
+      <ul>
+      <% students_info.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :姓名 %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :性别 %>
+    <%= f.radio_button :sex, 0 %>男
+    <%= f.radio_button :sex, 1 %>女
+  </div>
+
+  <div class="field">
+    <%= f.label :学号 %>
+    <%= f.number_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :联系方式 %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :头像 %>
+    <%= f.file_field :picture %>
+  </div>
+
+  <div class="field">
+    <%= f.label :年龄 %>
+    <%= f.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.label :邮箱 %>
+    <%= f.text_field :email %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :QQ号 %>
+    <%= f.text_field :qq %>
+  </div>
+
+  <div class="field">
+    <%= f.label :联系地址 %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :备注 %>
+    <%= f.text_field :sign %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit"提交" %>
+  </div>
+<% end %>

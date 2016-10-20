@@ -1,0 +1,2 @@
+module StudentsForumsHelper
+end

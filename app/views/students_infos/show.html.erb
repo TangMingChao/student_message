@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+
+<table align="centre" border="1" cellpadding="10" cellspacing="0" width="500" >
+ <thead>
+    <tr>
+        <th><h2>----------------学生信息详情-----------------</h2></th>
+    </tr>
+    <tr>
+     <th>
+          <strong>头像:</strong><br>
+          <%= image_tag(@students_info.picture)  %>
+     </th>
+    </tr>
+ </thead> 
+ <thead>
+   <tr>
+      <th>
+        <div>
+          
+          <strong>姓名:</strong>
+          <%= @students_info.name %>
+       <br>
+          <strong>性别:</strong>
+          <%= @students_info.sex %>
+        <br>
+          <strong>学号:</strong>
+          <%= @students_info.number %>
+        <br>
+          <strong>联系方式:</strong>
+          <%= @students_info.phone %>
+        <br>
+            <strong>年龄:</strong>
+            <%= @students_info.age %>
+        <br>
+            <strong>邮箱:</strong>
+            <%= @students_info.email %>
+        <br>
+            <strong>QQ:</strong>
+            <%= @students_info.qq %>
+        <br>
+            <strong>联系地址:</strong>
+            <%= @students_info.address %>
+        <br>
+            <strong>备注:</strong>
+            <%= @students_info.sign %>
+
+        </div>
+          
+     </th>
+   </tr>
+   <tr>
+     <th>
+          <%= link_to '修改', edit_students_info_path(@students_info) %> |
+          <%= link_to '返回', students_infos_path %>
+     </th>
+   </tr>
+ </thead>
+</table>
+
+
+

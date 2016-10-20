@@ -1,0 +1,32 @@
+<%= form_for(photo) do |f| %>
+  <% if photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :图片标题 %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :图片描述 %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :点击选择图片 %>
+    <%= f.file_field :picture %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit"开始上传" %>
+  </div>
+<% end %>

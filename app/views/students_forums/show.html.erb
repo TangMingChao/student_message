@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+
+<% if @students_forum.editable_by?(current_user) %>
+              <%= link_to '修改', edit_students_forum_path(@students_forum) %> 
+<% end -%>
+
+               <%= link_to '返回', students_forums_path %>
+
+
+
+<h3>----------动态列表----------</h3>
+
+<p>
+  <strong>主题:</strong>
+  <%= @students_forum.title %><br>
+
+  <strong>描述:</strong>
+  <%= @students_forum.description %>
+</p>
+
+
+
+<p>
+  <h3>评论 </h3>
+  <% @students_forum.comments.each do |comment| %>
+    <strong>Content <%= comment.id %>:<br></strong>
+    <%= comment.content %><br>
+    <br>作者来自 : <%= @user_name %><br>
+    <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+    <br>--------------<br>
+<% end %>
+</p>
+
+
+
+
+<h4>添加评论:</h4>
+<%= render "comments/form" %>
