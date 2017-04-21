@@ -1,18 +1,21 @@
-<p id="notice"><%= notice %></p>
+<body align="center">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>标题:</strong>
-  <%= @photo.title %>
-<br>
-  <strong>描述:</strong>
-  <%= @photo.description %>
-<br>
-  <strong>图片:</strong><br>
-  <%= image_tag(@photo.picture) %>
-<br>
-  <strong>上传时间:</strong>
-  <%= @photo.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
-</p>
+  <p>
+    <strong>标题:</strong>
+    <%= @photo.title %>
+  <br>
+    <strong>描述:</strong>
+    <%= @photo.description %>
+  <br>
+    <strong>图片:</strong><br>
+    <%= image_tag(@photo.picture) %>
+  <br>
+    <strong>上传时间:</strong>
+    <%= @photo.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  </p>
 
-<%= link_to '修改', edit_photo_path(@photo) %> |
-<%= link_to '返回', photos_path %>
+  <%= link_to '修改', edit_photo_path(@photo) %> |
+  <%= link_to '返回', photos_path %>
+
+</body>
