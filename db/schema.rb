@@ -10,57 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008062714) do
+ActiveRecord::Schema.define(version: 20161002141658) do
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",           limit: 65535
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
     t.integer  "students_forum_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.index ["students_forum_id"], name: "index_comments_on_students_forum_id", using: :btree
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["students_forum_id"], name: "index_comments_on_students_forum_id"
   end
 
-  create_table "feedbacks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",    limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+  create_table "feedbacks", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "photos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "photos", force: :cascade do |t|
     t.string   "title"
-    t.text     "description",          limit: 65535
+    t.text     "description"
     t.string   "content_file_name"
     t.string   "content_content_type"
     t.integer  "content_file_size"
     t.datetime "content_updated_at"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.string   "picture"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  create_table "students_forums", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "students_forums", force: :cascade do |t|
     t.string   "title"
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
-  create_table "students_infos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "students_infos", force: :cascade do |t|
     t.string   "name"
+    t.string   "sex"
     t.integer  "number"
     t.string   "phone"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.integer  "age"
     t.string   "email"
     t.string   "qq"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "picture"
     t.string   "sign"
-    t.string   "sex"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "username",               default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -74,18 +76,16 @@ ActiveRecord::Schema.define(version: 20161008062714) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  create_table "votes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "votes", force: :cascade do |t|
     t.integer  "students_forum_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.index ["students_forum_id"], name: "index_votes_on_students_forum_id", using: :btree
+    t.index ["students_forum_id"], name: "index_votes_on_students_forum_id"
   end
 
-  add_foreign_key "comments", "students_forums"
-  add_foreign_key "votes", "students_forums"
 end

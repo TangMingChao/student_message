@@ -3,7 +3,7 @@
 environment = 'production'
 threads 2, 128
 workers 2
-app_name = "student_message"
+app_name = 'student_message'
 application_path = "/home/edu/#{app_name}"
 directory application_path
 pidfile "#{application_path}/tmp/pids/puma.pid"
